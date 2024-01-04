@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  app:
+    build: .
+    hostname: musthafa
+    tty: true
+    volumes:
+      - home:/home/
+    ports:
+      - 4444:22
+volumes:
+    home:
