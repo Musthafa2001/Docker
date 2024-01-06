@@ -1,12 +1,38 @@
 version: '3.8'
 services:
-  app:
+  musthafa:
     build: .
-    hostname: musthafa
+    image: musthafa:latest
+    hostname: MrRobot
     tty: true
     volumes:
       - home:/home/
     ports:
       - 4444:22
+      - 80:80
+
+  dbAdmin:
+    image: adminer
+    # environment:
+    #    ADMINER_DESIGN: pepa-linha
+    ports:
+      - 8080:8080 
+  Postgres:
+    image: postgres
+    ports:
+        - 5432:5432
+    environment:
+        POSTGRES_USER: user
+        POSTGRES_PASSWORD: changeme
+        POSTGRES_DB: db
+  #  volumes:
+  #       - hello: /var/lib/postgresql/data
+
+      
+
+
+
+    
 volumes:
     home:
+    hello:
